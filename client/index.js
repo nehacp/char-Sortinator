@@ -1,12 +1,14 @@
 
 // this functions adds a a table row to the table
-const createRow = function (value) {
+const createRow = function (value, sorted) {
   let table = document.getElementsByTagName('table');
   const row = document.createElement('tr');
-  const data = document.createElement('td');
-  data.innerHTML = value;
-  row.appendChild(data);
-  console.log('table', table);
+  const submittedValue = document.createElement('td');
+  const sortedValue = document.createElement('td');
+  submittedValue.innerHTML = value;
+  sortedValue.innerHTML = sorted;
+  row.appendChild(submittedValue);
+  row.appendChild(sortedValue);
   table[0].appendChild(row);
 };
 
@@ -22,7 +24,7 @@ const handleSubmit = function (e) {
     url: 'http://127.0.0.1:4000/sort',
     data: { word: value },
     success: function (response) {
-      createRow(response);
+      createRow(value, response);
       wordNode.innerHTML = '';
     },
     error: function (error) {

@@ -11,7 +11,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.post('/sort', (req, res) => {
   const sortedWord = allWords.sortDescending(req.body.word);
   allWords.store.push(sortedWord);
-  console.log('sorted word is', sortedWord);
   res.json(sortedWord);
 });
 

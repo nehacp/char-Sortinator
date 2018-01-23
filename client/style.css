@@ -11,8 +11,10 @@ body {
   text-align: center;
 }
 
-table {
+table, th, td {
   position: relative;
   margin: auto;
   width: 50%;
+  border: 1px solid;
+  border-collapse: collapse;
 }
